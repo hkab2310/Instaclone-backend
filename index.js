@@ -5,6 +5,8 @@ const cors = require('cors');
 const imageUpload = require('./imageUpload.js');
 const fileUpload = require('express-fileupload');
 const app = express();
+const URI = process.env.URI;
+//'mongodb+srv://root-instaclone:instacloneHKA@cluster0.vqsgmeu.mongodb.net/?retryWrites=true&w=majority'
 
 const Posts = require('./models/posts')
 
@@ -64,7 +66,7 @@ app.post("/uploads", async (req, res) => {
 })
 
 
-mongoose.connect('mongodb+srv://root-instaclone:instacloneHKA@cluster0.vqsgmeu.mongodb.net/?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true} ,
+mongoose.connect(URI,{ useNewUrlParser: true, useUnifiedTopology: true} ,
     () => {
       console.log("connected to DB");
     }
